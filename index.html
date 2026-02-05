@@ -105,18 +105,22 @@
     }
 
     .photo {
-      margin: 12px 0 6px;
+      margin: 8px 0 6px;
       border-top: 2px solid var(--rule);
       border-bottom: 2px solid var(--rule);
-      padding: 10px 0;
-      text-align: center;
+      padding: 8px 0;
+      text-align: left;
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 12px;
+      align-items: start;
     }
 
     .photo img {
       max-width: 100%;
       height: auto;
       display: block;
-      margin: 0 auto 6px;
+      margin: 0;
       filter: grayscale(100%) contrast(105%);
     }
 
@@ -124,6 +128,18 @@
       font-size: 12px;
       text-transform: uppercase;
       letter-spacing: 1px;
+    }
+
+    .photo-story h4 {
+      font-family: "Playfair Display", serif;
+      text-transform: uppercase;
+      margin: 0 0 6px;
+      font-size: 18px;
+    }
+
+    .photo-story p {
+      margin: 0 0 8px;
+      text-align: justify;
     }
 
     .columns {
@@ -343,6 +359,7 @@
       .block.wide { grid-column: auto; }
       .pull-quote { font-size: 16px; }
       .ticker { gap: 8px; font-size: 11px; }
+      .photo { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -426,8 +443,20 @@
     </section>
 
     <figure class="photo">
-      <img src="images/trenchdog.png" alt="DogWifTrenchfoot in the trenches" />
-      <figcaption>Field photograph: The hero hound returns to the line</figcaption>
+      <div>
+        <img src="images/trenchdog.png" alt="DogWifTrenchfoot in the trenches" />
+        <figcaption>Field photograph: The hero hound returns to the line</figcaption>
+      </div>
+      <div class="photo-story">
+        <h4>Photograph From The Mud</h4>
+        <p>
+          A rare field plate shows the hero hound seated on a ration crate, paws wrapped and elevated.
+          Medics confirm early signs of recovery; the watch has been shortened until the ground dries.
+        </p>
+        <p>
+          Officers urge the men to keep their kits dry and their candles lit as the line awaits relief.
+        </p>
+      </div>
     </figure>
 
     <div class="rule"></div>
