@@ -104,6 +104,28 @@
       margin: 8px auto 0;
     }
 
+    .photo {
+      margin: 12px 0 6px;
+      border-top: 2px solid var(--rule);
+      border-bottom: 2px solid var(--rule);
+      padding: 10px 0;
+      text-align: center;
+    }
+
+    .photo img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      margin: 0 auto 6px;
+      filter: grayscale(100%) contrast(105%);
+    }
+
+    .photo figcaption {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
     .columns {
       column-count: 3;
       column-gap: 20px;
@@ -402,6 +424,11 @@
         <p>Officers levy penalties for fouling the traverse and spoiling water barrels.</p>
       </article>
     </section>
+
+    <figure class="photo">
+      <img src="images/trenchdog.jpg" alt="DogWifTrenchfoot in the trenches" />
+      <figcaption>Field photograph: The hero hound returns to the line</figcaption>
+    </figure>
 
     <div class="rule"></div>
 
