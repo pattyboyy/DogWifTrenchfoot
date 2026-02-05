@@ -356,6 +356,27 @@
       flex-wrap: wrap;
     }
 
+    .socials {
+      margin-top: 14px;
+      border-top: 3px double var(--rule);
+      border-bottom: 3px double var(--rule);
+      padding: 10px 8px;
+      text-align: center;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-size: 13px;
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .socials span {
+      border: 1px solid var(--rule);
+      padding: 4px 8px;
+      background: rgba(0,0,0,0.03);
+    }
+
     .footer {
       margin-top: 26px;
       text-align: center;
@@ -389,6 +410,7 @@
       .block.wide { grid-column: auto; }
       .pull-quote { font-size: 16px; }
       .ticker { gap: 8px; font-size: 11px; }
+      .socials { font-size: 11px; }
       .photo { grid-template-columns: 1fr; }
     }
   </style>
@@ -629,6 +651,12 @@
       <span>Frontline Finance</span>
       <span>Trench Dispatches</span>
       <span>Victory or Valhalla</span>
+    </div>
+
+    <div class="socials">
+      <span>Telegraph: @DogWifTrenchfoot</span>
+      <span>Town Crier: /DogWifTrenchfoot</span>
+      <span>Dispatch Wire: @DWTFOOT</span>
     </div>
 
     <footer class="footer">
