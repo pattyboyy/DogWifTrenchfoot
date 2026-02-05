@@ -216,6 +216,7 @@
       letter-spacing: 1px;
       font-size: 14px;
       background: rgba(0,0,0,0.03);
+      cursor: pointer;
     }
 
     .ca code {
@@ -223,6 +224,18 @@
       font-weight: 700;
       font-size: 13px;
       word-break: break-all;
+    }
+
+    .ca:hover {
+      background: rgba(0,0,0,0.06);
+    }
+
+    .ca .hint {
+      display: block;
+      font-size: 11px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-top: 4px;
     }
 
     .grid {
@@ -485,7 +498,10 @@
         "We wanted to build the only token we know won't rug," the circular reads, urging the line
         to hold steady while supplies and morale are restored.
       </p>
-      <div class="ca">CA: <code>8TrEP1YTD2DMmp7aBjFBmtLoGwnffGHdmzykkHqxpump</code></div>
+      <div class="ca" id="ca-copy" data-ca="8TrEP1YTD2DMmp7aBjFBmtLoGwnffGHdmzykkHqxpump">
+        CA: <code>8TrEP1YTD2DMmp7aBjFBmtLoGwnffGHdmzykkHqxpump</code>
+        <span class="hint">Tap to copy</span>
+      </div>
     </section>
 
     <section class="front-grid">
@@ -701,6 +717,42 @@
       var d = new Date();
       var opts = { weekday: "long", year: "numeric", month: "long", day: "numeric" };
       el.textContent = d.toLocaleDateString("en-US", opts);
+    })();
+    (function () {
+      var el = document.getElementById("ca-copy");
+      if (!el) return;
+      var value = el.getAttribute("data-ca");
+      function setHint(text) {
+        var hint = el.querySelector(".hint");
+        if (hint) hint.textContent = text;
+      }
+      function fallbackCopy() {
+        var ta = document.createElement("textarea");
+        ta.value = value;
+        ta.setAttribute("readonly", "");
+        ta.style.position = "absolute";
+        ta.style.left = "-9999px";
+        document.body.appendChild(ta);
+        ta.select();
+        try { document.execCommand("copy"); } catch (e) {}
+        document.body.removeChild(ta);
+      }
+      el.addEventListener("click", function () {
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(value).then(function () {
+            setHint("Copied");
+            setTimeout(function () { setHint("Tap to copy"); }, 1500);
+          }, function () {
+            fallbackCopy();
+            setHint("Copied");
+            setTimeout(function () { setHint("Tap to copy"); }, 1500);
+          });
+        } else {
+          fallbackCopy();
+          setHint("Copied");
+          setTimeout(function () { setHint("Tap to copy"); }, 1500);
+        }
+      });
     })();
   </script>
 </body>
