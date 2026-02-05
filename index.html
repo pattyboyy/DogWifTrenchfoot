@@ -327,7 +327,7 @@
 <body>
   <main class="page">
     <div class="issue-line">
-      <span>Thursday, February 5, 1910</span>
+      <span id="issue-date">Thursday, February 5, 1910</span>
       <span>Price: Two Cents</span>
       <span>Vol. XII - No. 7</span>
     </div>
@@ -521,5 +521,14 @@
       Printed in the old style * DogWifTrenchfoot Gazette
     </footer>
   </main>
+  <script>
+    (function () {
+      var el = document.getElementById("issue-date");
+      if (!el) return;
+      var d = new Date();
+      var opts = { weekday: "long", year: "numeric", month: "long", day: "numeric" };
+      el.textContent = d.toLocaleDateString("en-US", opts);
+    })();
+  </script>
 </body>
 </html>
